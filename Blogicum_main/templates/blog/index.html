@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+
+{% load static %}
 {% block title %}
   Блогикум.Лента
 {% endblock %}
@@ -11,7 +13,7 @@
         <h3>{{ blog.date }}</h3>
         <h3>{{ blog.category }}</h3>
         <p>{{ blog.text|truncatewords:10 }}</p>
-        <a href="{% url 'blog:post_detail' blog.id %}">Читать полный текст</a>
+        <a href="{% url 'blog:post_detail' index.id %}">Читать полный текст</a>
       </li>
       {% if not forloop.last %}
         <hr>

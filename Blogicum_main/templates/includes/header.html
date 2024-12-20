@@ -1,17 +1,14 @@
 <header>
   {% load static %}
-  <img src="{% static 'img/logo.png' %}" height="50" alt="">
+  <nav class="navbar navbar-light" style="background-color: lightskyblue">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
   <nav>
     <ul>
-      <li>
-        <a href="{% url 'blog:index' %}">Лента записей</a>  
-      </li>
-      <li>
-        <a href="{% url 'pages:about' %}"О проекте></a>       
-      </li>
-      <li>
-        <a href="{% url 'pages:rules' %}">Наши правила</a>
-      </li>
+        <a href="{% url 'blog:index' %}"> Лента записей </a>
+        <a href="{% url 'pages:about' %}"> О проекте </a>       
+        <a href="{% url 'pages:rules' %}"> Наши правила </a>
     </ul>
   </nav>
 </header>
