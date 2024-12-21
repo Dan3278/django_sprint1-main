@@ -45,16 +45,21 @@ posts = [
 
 
 def index(request):
-    template = 'blog/index.html'
-    context = {'index': posts}
-    return render(request, template, context)
+    context = {'posts': posts}
+    return render(request, 'blog/index.html', context)
 
 
-def post_detail(request, pk):
-    template = 'blog/detail.html'
-    context = {'blog': posts[pk]}
-    return render(request, template, context)
+def post_detail(request, id):
+    post = next((post for post in posts if post['id'] == id), None)
+    if not post:
+        raise Http404('Указан неверный id')
+    context = {'post': post}
+    return render(request, 'blog/detail.html', context)
 
 
 def category_posts(request, category_slug):
-    return render(request, 'category.html', {'category_slug': category_slug})
+    sorted_posts = [
+        post for post in posts if post['category'] == category_slug
+    ]
+    context = {'category': category_slug, 'posts': sorted_posts}
+    return render(request, 'blog/category.html', context)
