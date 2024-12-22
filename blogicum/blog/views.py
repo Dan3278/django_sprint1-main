@@ -42,19 +42,20 @@ posts = [
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
-] 
+]
 
-posts_dict = {post['id']: post for post in posts} 
+posts_dict = {post['id']: post for post in posts}
+
 
 def index(request):
     context = {'posts': posts[::-1]}
     return render(request, 'blog/index.html', context)
 
 
-def post_detail(request, post_id):  
-    post = posts_dict.get(post_id)  
+def post_detail(request, post_id):
+    post = posts_dict.get(post_id)
     if post is None:  
-        raise Http404('Указан неверный id')  
+        raise Http404('Указан неверный id')
     context = {'post': post, }
     return render(request, 'blog/detail.html', context)
 
