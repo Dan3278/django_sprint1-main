@@ -10,6 +10,6 @@
       <li>Kатегория: <a href="{% url 'blog:category_posts' post.category %}">
         {{ post.category}}</a>
     </li>
-    <p>{{ post.text|safe }}</p>
+    <p>{{ post.text|linebreaksbr }}</p>
   </div>
 {% endblock %}
