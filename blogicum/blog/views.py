@@ -56,4 +56,5 @@ def post_detail(request, pk):
 
 
 def category_posts(request, category_slug):
-    return render(request, 'blocategory.html', {'category_slug': category_slug})
+    return render(request, 'blocategory.html',
+                  {'category_slug': category_slug})
